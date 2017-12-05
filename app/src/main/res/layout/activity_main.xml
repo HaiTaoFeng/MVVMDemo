@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+      <variable
+          name="viewModel"
+          type="com.demo.tangminglong.mvvmprojecttest.viewmodel.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/singleBundle"
+            android:onClick="@{viewModel.onClickOne}"/>
+        <Button
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/doubleBundle"
+            android:onClick="@{viewModel.onClickTwo}"/>
+
+    </LinearLayout>
+
+</layout>

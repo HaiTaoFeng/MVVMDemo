@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="setting"
+            type="com.demo.tangminglong.mvvmprojecttest.viewmodel.Setting"/>
+    </data>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/syn_vibrate" />
+
+        <ToggleButton
+            android:id="@+id/syn_vibrate_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:checked="@={setting.vibrateOn}"
+            android:textOff=""
+            android:textOn=""/>
+
+        <TextView android:text="@string/syn_voice"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:checked="@={setting.voiceOn}"
+            android:textOff=""
+            android:textOn=""/>
+
+        <TextView android:text="@string/syn_cache"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:checked="@={setting.cacheEnable}"
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:text="@string/syn_cache_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{setting.cacheEnable ? View.VISIBLE: View.GONE}"
+            android:layout_columnSpan="2"/>
+
+        <SeekBar
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:visibility="@{setting.cacheEnable ? View.VISIBLE: View.GONE}"
+            android:progress="@={setting.cacheSize}"
+            android:max="1000"
+            android:layout_columnSpan="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/syn_setting"
+            android:layout_columnSpan="2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{setting.description}"
+            android:layout_columnSpan="2"/>
+    </GridLayout>
+
+</layout>
